@@ -33,3 +33,6 @@ def compress(file_name):
 
 def rm_file(file_name):
     run('rm "%s"' % file_name)
+
+def s3upload(file, bucket_name):
+    run('s3cmd put "%s" s3://%s' % (file, bucket_name))
