@@ -26,3 +26,7 @@ def archive_dir(source_path, target_path, archive_name):
     file_name = path.join(target_path, "%s.tar" % archive_name)
     run('cd %s; tar c * > "%s"' % (source_path, file_name))
     return file_name
+
+def compress(file_name):
+    run('bzip2 -9 "%s"' % file_name)
+    return "%s.bz2" % file_name
