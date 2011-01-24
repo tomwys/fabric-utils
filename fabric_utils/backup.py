@@ -30,3 +30,6 @@ def archive_dir(source_path, target_path, archive_name):
 def compress(file_name):
     run('bzip2 -9 "%s"' % file_name)
     return "%s.bz2" % file_name
+
+def rm_file(file_name):
+    run('rm "%s"' % file_name)
