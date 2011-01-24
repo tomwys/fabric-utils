@@ -1,3 +1,5 @@
+import datetime
+
 from fabric.api import env, run, sudo
 
 def postgresql(database, file):
@@ -13,3 +15,8 @@ class TmpDir(object):
     
     def __exit__(self, type, value, traceback):
         sudo("rm -rf %s" % self.dir_name)
+
+def generate_name():
+    hostname = run("hostname")
+    date = datetime.datetime.now().isoformat('_')
+    return "%s_%s" % (hostname, date)
